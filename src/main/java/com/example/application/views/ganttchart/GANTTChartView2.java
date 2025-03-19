@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 import java.time.LocalDateTime;
@@ -20,6 +21,7 @@ import java.time.temporal.ChronoUnit;
 
 @PageTitle("GANTT Chart 2")
 @Route(value = "GANTT 2", layout = MainLayout.class)
+@RouteAlias(value = "", layout = MainLayout.class)
 @Menu(order = 2, icon = "line-awesome/svg/home-solid.svg")
 @AnonymousAllowed
 public class GANTTChartView2 extends VerticalLayout {
@@ -31,7 +33,7 @@ public class GANTTChartView2 extends VerticalLayout {
 
     private void configureYearsMonthsWeeksOnXAxis(Configuration configuration) {
         configureDaysAxis(configuration);
-        //configureWeeksAxis(configuration);          // Setting week together with days will make a mess :-)
+        configureWeeksAxis(configuration);          // Setting week together with days will make a mess :-)
         configureMonthsAxis(configuration);
     }
 
